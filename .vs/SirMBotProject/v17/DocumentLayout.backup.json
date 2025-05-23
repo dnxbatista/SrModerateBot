@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\danie\\OneDrive\\Documentos\\GitHub\\SMBotProject\\SirMBotProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{606AC941-2AB7-4039-A0CE-59945F6CD8F0}|SirMBotProject\\SirMBotProject.csproj|c:\\users\\danie\\onedrive\\documentos\\github\\smbotproject\\sirmbotproject\\sirmbotproject\\modules\\botinfomodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606AC941-2AB7-4039-A0CE-59945F6CD8F0}|SirMBotProject\\SirMBotProject.csproj|solutionrelative:sirmbotproject\\modules\\botinfomodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{606AC941-2AB7-4039-A0CE-59945F6CD8F0}|SirMBotProject\\SirMBotProject.csproj|c:\\users\\danie\\onedrive\\documentos\\github\\smbotproject\\sirmbotproject\\sirmbotproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606AC941-2AB7-4039-A0CE-59945F6CD8F0}|SirMBotProject\\SirMBotProject.csproj|solutionrelative:sirmbotproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{606AC941-2AB7-4039-A0CE-59945F6CD8F0}|SirMBotProject\\SirMBotProject.csproj|c:\\users\\danie\\onedrive\\documentos\\github\\smbotproject\\sirmbotproject\\sirmbotproject\\services\\interactionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606AC941-2AB7-4039-A0CE-59945F6CD8F0}|SirMBotProject\\SirMBotProject.csproj|solutionrelative:sirmbotproject\\services\\interactionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BotInfoModule.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\OneDrive\\Documentos\\GitHub\\SMBotProject\\SirMBotProject\\SirMBotProject\\Modules\\BotInfoModule.cs",
+              "RelativeDocumentMoniker": "SirMBotProject\\Modules\\BotInfoModule.cs",
+              "ToolTip": "C:\\Users\\danie\\OneDrive\\Documentos\\GitHub\\SMBotProject\\SirMBotProject\\SirMBotProject\\Modules\\BotInfoModule.cs*",
+              "RelativeToolTip": "SirMBotProject\\Modules\\BotInfoModule.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T16:01:40.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InteractionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\OneDrive\\Documentos\\GitHub\\SMBotProject\\SirMBotProject\\SirMBotProject\\Services\\InteractionHandler.cs",
+              "RelativeDocumentMoniker": "SirMBotProject\\Services\\InteractionHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\OneDrive\\Documentos\\GitHub\\SMBotProject\\SirMBotProject\\SirMBotProject\\Services\\InteractionHandler.cs",
+              "RelativeToolTip": "SirMBotProject\\Services\\InteractionHandler.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCIAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T15:23:13.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\OneDrive\\Documentos\\GitHub\\SMBotProject\\SirMBotProject\\SirMBotProject\\Program.cs",
+              "RelativeDocumentMoniker": "SirMBotProject\\Program.cs",
+              "ToolTip": "C:\\Users\\danie\\OneDrive\\Documentos\\GitHub\\SMBotProject\\SirMBotProject\\SirMBotProject\\Program.cs",
+              "RelativeToolTip": "SirMBotProject\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T14:27:25.816Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
