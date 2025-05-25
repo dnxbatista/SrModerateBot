@@ -1,0 +1,27 @@
+﻿using Discord.WebSocket;
+using Discord;
+using System.Threading.Tasks;
+
+namespace SirMBotProject.Modules
+{
+    public class AutoRoleModule
+    {
+        private readonly DiscordSocketClient _client;
+        private readonly ulong _roleId = 1374868207088832677;
+
+        public AutoRoleModule(DiscordSocketClient client)
+        {
+            _client = client;
+            _client.UserJoined += OnUserJoinedAsync;
+        }
+
+        private async Task OnUserJoinedAsync(SocketGuildUser user)
+        {
+            var role = user.Guild.GetRole(_roleId);
+            if (role != null)
+            {
+                await user.AddRoleAsync(role);
+            }
+        }
+    }
+}
