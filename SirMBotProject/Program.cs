@@ -4,6 +4,7 @@ using Discord.Interactions;
 using Discord.WebSocket;
 using DotNetEnv;
 using Microsoft.Extensions.DependencyInjection;
+using SirMBotProject.Modules;
 using SirMBotProject.Services;
 
 namespace SirMBotProject

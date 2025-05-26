@@ -17,10 +17,18 @@ namespace SirMBotProject.Modules
 
         private async Task OnUserJoinedAsync(SocketGuildUser user)
         {
-            var role = user.Guild.GetRole(_roleId);
-            if (role != null)
+            try
             {
-                await user.AddRoleAsync(role);
+                Console.WriteLine($"New User In: {user.Username}");
+                var role = user.Guild.GetRole(_roleId);
+                if (role != null)
+                {
+                    await user.AddRoleAsync(role);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"AutoEvent Error:\n{ex}");
             }
         }
     }
