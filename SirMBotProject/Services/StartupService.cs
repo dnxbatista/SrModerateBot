@@ -15,6 +15,7 @@ namespace SirMBotProject.Services
         {
             _commandHandler = commandHandler;
             _interactionHandler = interactionHandler;
+
         }
 
         public async Task InitializeAsync()

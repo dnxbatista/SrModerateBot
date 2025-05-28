@@ -1,5 +1,6 @@
 using Discord;
 using Discord.Interactions;
+using SirMBotProject.Services;
 using System.Threading.Tasks;
 
 namespace SirMBotProject.Modules
@@ -17,12 +18,12 @@ namespace SirMBotProject.Modules
         maxLength: 200)]
         public string? Reason { get; set; }
 
-        [InputLabel("Days (0 - 31")]
+        [InputLabel("Days (0 - 7)")]
         [ModalTextInput("days",
             style: TextInputStyle.Short,
             placeholder: "Number of days to delete messages (0-7)",
             minLength: 1,
-            maxLength: 2
+            maxLength: 1
             )]
         public string? Days { get; set; }
     }
@@ -30,7 +31,15 @@ namespace SirMBotProject.Modules
     // Build command
     public class BanModule : InteractionModuleBase<SocketInteractionContext>
     {
+        public readonly ServerLoggingService _serverLoggingService;
+
+        public BanModule(ServerLoggingService serverLoggingService)
+        {
+            _serverLoggingService = serverLoggingService;
+        }
+
         [SlashCommand("ban", "Ban anyone from the server [Mod Only]")]
+        [RequireUserPermission(GuildPermission.BanMembers)]
         public async Task BanCommand(
             [Summary(description: "User thats gonna be banned")] IUser user
             )
@@ -43,28 +52,51 @@ namespace SirMBotProject.Modules
         [ModalInteraction("ban_reason_modal:*")]
         public async Task HandleBanReasonModal(string customId, BanReasonModal modal)
         {
-            var userIdStr = customId.Split(":").Last();
-            if (!ulong.TryParse(userIdStr, out var userId))
+            try
             {
-                await RespondAsync("Error to process user", ephemeral: true);
-                return;
-            }
+                var userIdStr = customId.Split(":").Last();
+                if (!ulong.TryParse(userIdStr, out var userId))
+                {
+                    await RespondAsync("Error to process user", ephemeral: true);
+                    return;
+                }
 
-            var guildUser = Context.Guild.GetUser(userId);
-            if(guildUser == null)
+                var guildUser = Context.Guild.GetUser(userId);
+                if (guildUser == null)
+                {
+                    await RespondAsync("User not found!", ephemeral: true);
+                    return;
+                }
+
+                int days = 1;
+                if (!string.IsNullOrEmpty(modal.Days) && int.TryParse(modal.Days, out var parsedDays))
+                {
+                    days = Math.Clamp(parsedDays, 0, 7);
+                }
+
+                await guildUser.BanAsync(days, modal.Reason);
+
+                // Build log embed
+                var embed = new EmbedBuilder()
+                    .WithTitle("Ban Log")
+                    .WithThumbnailUrl(Context.Client.CurrentUser.GetAvatarUrl() ?? Context.Client.CurrentUser.GetDefaultAvatarUrl())
+                    .AddField("User Banned:", guildUser.Username)
+                    .AddField("Command executed by:", Context.User.Username)
+                    .AddField("Reason:", modal.Reason)
+                    .AddField("Days to delete messages:", days)
+                    .WithColor(Color.Orange)
+                    .WithCurrentTimestamp()
+                    .Build();
+
+                await _serverLoggingService.LogEventAsync(embed);
+                await RespondAsync($"**User {guildUser.Username} has been banned for {days} day(s) of message deletion!**", ephemeral: true);
+            }
+            catch (Exception ex)
             {
-                await RespondAsync("User not found!", ephemeral: true);
-                return;
+                var commandUser = Context.User;
+                await _serverLoggingService.LogErrorASync("Ban user command failed", commandUser.Username, ex);
+                await RespondAsync("**Failed to ban user!\n Check the logs channel to more infos**", ephemeral: true);
             }
-
-            int days = 1;
-            if (!string.IsNullOrEmpty(modal.Days) && int.TryParse(modal.Days, out var parsedDays))
-            {
-                days = Math.Clamp(parsedDays, 0, 31);
-            }
-
-            await guildUser.BanAsync(days, modal.Reason);
-            await RespondAsync($"User {guildUser.Username} has been banned for {days} day(s) of message deletion!", ephemeral: true);
         }
     }
 

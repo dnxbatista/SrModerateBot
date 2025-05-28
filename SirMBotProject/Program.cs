@@ -41,6 +41,11 @@ namespace SirMBotProject
                 .AddSingleton<InteractionService>(provider =>
                 new InteractionService(provider.GetRequiredService<DiscordSocketClient>()))
                 .AddSingleton<InteractionHandler>()
+                .AddSingleton<ServerLoggingService>(provider =>
+                new ServerLoggingService(
+                    provider.GetRequiredService<DiscordSocketClient>(),
+                    1375470070070771724
+                    ))
                 .BuildServiceProvider();
         }
 
