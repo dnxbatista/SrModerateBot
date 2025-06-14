@@ -4,7 +4,7 @@
 
 A moderation bot for Discord servers built with [Discord.Net](https://github.com/discord-net/Discord.Net). Simple, powerful, and easy to extend.
 
-## ✨ Features
+## ✨ Features (Not Finished)
 
 Essential moderation commands to keep your server safe and organized:
 
@@ -30,7 +30,7 @@ Essential moderation commands to keep your server safe and organized:
 ### Cloning the Project
 
 ```bash
-git clone https://github.com/dnxbatista/dnx-moderation-bot.git
+git clone https://github.com/dnxbatista/SrModerateBot.git
 cd dnx-moderation-bot
 ```
 ### Change .env variables
